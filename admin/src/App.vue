@@ -1,30 +1,38 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+  import { ref } from "vue";
+
+  import Editor from "./components/Editor.vue";
+  import Preview from "./components/Preview.vue";
+  import CardSFC from "./components/Card.vue?raw";
+
+  const stableCode = ref(CardSFC);
+
+  function updatePreview(code: string) {
+    stableCode.value = code;
+  }
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <Editor
+      :code="stableCode"
+      @change="updatePreview"
+    />
+    <Preview :code="stableCode" />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  .container {
+    width: 50vw;
+    min-width: 500px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding: 24px;
+  }
+  .mt_20 {
+    margin-top: 20px;
+  }
 </style>
