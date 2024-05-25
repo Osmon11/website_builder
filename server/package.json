@@ -1,17 +1,26 @@
 {
-  "name": "basic-sls-crud-node",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Basic CRUD operation in serverless in nodejs.",
-  "main": "handler.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "node dist/src/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\""
   },
-  "keywords": [
-    "serverless",
-    "aws"
-  ],
+  "author": "osmon",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.5"
+  },
   "dependencies": {
-    "aws-sdk": "^2.738.0",
-    "uuid": "^8.3.0"
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "yaml": "^2.4.2"
   }
 }

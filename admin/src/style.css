@@ -28,6 +28,7 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
+  padding: 24px;
 }
 
 h1 {
@@ -43,6 +44,10 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  color: white;
+  background-color: purple;
+  padding: 10px;
+  border-radius: 4px;
   transition: border-color 0.25s;
 }
 button:focus,
